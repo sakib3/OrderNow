@@ -1,0 +1,31 @@
+ion-title{
+  text-align : right;
+}
+
+.home-ion-content{
+  background-image: url(http://images.3-form.com/images/products/full_panel/9029.jpg);
+  background-repeat: no-repeat;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  background-size: 100%;
+}
+.home-secondary{
+  color: map-get($colors, secondary);
+  font-weight: 200;
+  font-size: 1.2em;
+}
+.bg-secondary{
+  background-color: map-get($colors, secondary);
+}
+.bg-danger{
+  background-color: map-get($colors, danger);
+}
+.small-text{
+  font-size: .5em;
+}
+.div-donor{
+  margin-top:85%;
+}
+.home-ion-card{
+  text-align: center;
+}

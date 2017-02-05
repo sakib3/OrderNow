@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <ion-icon name="cart" color="danger"></ion-icon>
+      <span class="home-secondary">Now</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="home-ion-content">
+  <div style="font-size: 1.8rem; text-align:center; margin-top: 1rem">Restaurant Menus</div>
+  <div padding *ngIf='isRecentOrder'>
+    <button ion-button block (click)='showOrder()' color="secondary" round>See your order</button>
+  </div>
+  <div id="restaurant" style="padding:0 4% 0 4%">
+    <span *ngFor="let restaurant of restaurants">
+      <button ion-button style="width:48%;border-radius: 0;display:inline-block;" color="danger" (click)='selectShopForOrder(restaurant.id)'>
+      {{restaurant.name}}
+    </button>
+    </span>
+  </div>
+</ion-content>
