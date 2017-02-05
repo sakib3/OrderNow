@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-
 import { NavController } from 'ionic-angular';
+import { ShopPage } from '../shop/shop';
 
 @Component({
   selector: 'page-home',
@@ -15,10 +15,13 @@ export class HomePage {
       { id: 2, name: 'Max' },
       { id: 3, name: 'Burger King' },
       { id: 4, name: 'Subway' }];
-    setTimeout(() =>{
+    setTimeout(() => {
       this.isRecentOrder = true;
-    },2000);
+    }, 2000);
   }
   showOrder(): void { }
-  selectShopForOrder(shopId): void { console.log(shopId); }
+  selectShopForOrder(shopId): void {
+    console.log(shopId);
+    this.navCtrl.push(ShopPage);
+  }
 }

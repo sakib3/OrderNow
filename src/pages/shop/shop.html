@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <ion-icon name="cart" color="danger"></ion-icon>
+      <span class="home-secondary">Now</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="home-ion-content">
+  <div padding>
+    <ion-segment [(ngModel)]="selectedProductType">
+      <ion-segment-button value="{{productCategoryType.id}}" *ngFor="let productCategoryType of productCategoryTypes">
+        {{productCategoryType.name}}
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div [ngSwitch]="selectedProductType">
+    <span *ngFor="let productCategoryType of productCategoryTypes">
+      <ion-list *ngSwitchCase="productCategoryType.id">
+        <span *ngFor="let product of products">
+          <ion-item *ngIf="productCategoryType.id == product.category" style="background: transparent">
+            <ion-badge color="dark" item-left *ngIf="product.quantity > 0">{{product.quantity}}</ion-badge>
+            <ion-thumbnail item-left>
+              <img src="{{product.img}}">
+            </ion-thumbnail>
+            <h2>{{product.name}}</h2>
+            <p>{{product.price}} Kr</p>
+            <div style="height:100%; margin:0; padding:0;display:block;" item-right>
+              <button ion-button icon-only  clear color="secondary" style="width:100%; margin:0" (click)='changeQuantity(product,1)'>
+                <ion-icon name="arrow-dropup-circle"></ion-icon>
+              </button>
+              <button ion-button icon-only  clear color="danger" style="width:100%;margin:0" (click)='changeQuantity(product,-1)'>
+                <ion-icon name="arrow-dropdown-circle"></ion-icon>
+              </button>
+            </div>
+            <button ion-button clear item-right (click)='productDetails(product.id)'>Details</button>
+          </ion-item>
+        </span>
+    </ion-list>
+    </span>
+  </div>
+  <div padding>
+      <button ion-button block (click)='orderNow()' color='secondary'>OrderNow</button>
+  </div>
+  
+</ion-content>
