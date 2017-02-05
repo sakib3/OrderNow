@@ -24,4 +24,9 @@ export class HomePage {
     console.log(shopId);
     this.navCtrl.push(ShopPage);
   }
+  getItems(ev): void{
+    // set val to the value of the ev target
+    var val = ev.target.value;
+    console.log(val);
+  }
 }

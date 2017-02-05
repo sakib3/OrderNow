@@ -31,7 +31,7 @@ export class ShopPage {
   }
 
   productDetails(productId): void{
-    console.log('??');
+    console.log(productId);
   }
   changeQuantity(product,change): void{
     if(!(product.quantity < 1 && change < 0))
