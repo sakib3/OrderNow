@@ -7,21 +7,15 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-list no-border>
 
-    <ion-list-header>
-      {{product.name}}
-    </ion-list-header>
+  <h3 style="text-align: center"> 
+    {{product.name}}
+  </h3>
 
-    <ion-item *ngFor="let item of product.ingredients">
-      <ion-icon name='radio-button-on' item-left></ion-icon>
-      {{item.name}}
-    </ion-item>
-
-  </ion-list>
-  </ion-content>
-<!--<ion-content class="home-ion-content">
-  <span *ngFor="let item of product.ingredients">
-    <h2>{{item}}</h2>
-  </span>
-</ion-content>-->
+  <div *ngFor="let item of product.ingredients" style="padding: 3% 0 0 10%">
+    <ion-icon name="checkmark"></ion-icon>
+    <ion-chip>
+      <ion-label color="dark">{{item.name}}</ion-label>
+    </ion-chip>
+  </div>
+</ion-content>
