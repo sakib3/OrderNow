@@ -11,20 +11,24 @@
 </ion-header>
 <ion-content class="home-ion-content">
   <div style="font-size: 1.8rem; text-align:center; margin-top: 1rem">Restaurant Menus</div>
-
-
-  <div padding>
+  <div padding style="padding-bottom: 0">
     <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-list style="background-color: transparent; margin-bottom:0">
+      <ion-item style="background-color: transparent; border:none">
+        <ion-label style="margin-left: 0">Search By</ion-label>
+        <ion-select [(ngModel)]="selectedSarchBy">
+          <ion-option *ngFor="let item of searchBy" value="{{item}}">{{item}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
   </div>
-
   <!-- Feature is not available -->
-  <div padding *ngIf='isRecentOrder && flase'>
+  <!--<div padding *ngIf='isRecentOrder && flase'>
     <button ion-button block (click)='showOrder()' color="secondary" round>See your order</button>
-  </div>
-
+  </div>-->
   <div id="restaurant" style="padding:0 4% 0 4%">
     <span *ngFor="let restaurant of restaurants">
-      <button ion-button style="width:48%;border-radius: 0;display:inline-block;" color="danger" (click)='selectShopForOrder(restaurant.id)'>
+      <button ion-button style="width:48%;height:7em;border-radius: 0;display:inline-block;" color="danger" (click)='selectShopForOrder(restaurant.id)'>
       {{restaurant.name}}
     </button>
     </span>

@@ -9,12 +9,18 @@ import { ShopPage } from '../shop/shop';
 export class HomePage {
   restaurants: any;
   isRecentOrder: Boolean = false;
+  searchBy: any;
+  selectedSarchBy: string;
   constructor(public navCtrl: NavController) {
     this.restaurants = [
       { id: 1, name: 'Macdonalds' },
       { id: 2, name: 'Max' },
       { id: 3, name: 'Burger King' },
-      { id: 4, name: 'Subway' }];
+      { id: 4, name: 'Subway' },
+      { id: 5, name: 'Wok kitchen' },
+      { id: 6, name: 'Yadoo' }];
+    this.searchBy = ["Location", "Name", "Type"];
+    this.selectedSarchBy = "Location";
     setTimeout(() => {
       this.isRecentOrder = true;
     }, 2000);
@@ -25,8 +31,7 @@ export class HomePage {
     this.navCtrl.push(ShopPage);
   }
   getItems(ev): void{
-    // set val to the value of the ev target
-    var val = ev.target.value;
-    console.log(val);
+    var search = ev.target.value;
+    console.log(search, this.selectedSarchBy);
   }
 }

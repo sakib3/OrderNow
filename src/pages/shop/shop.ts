@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
-
+import { ProductPage } from '../product/product';
 @Component({
   selector: 'page-shop',
   templateUrl: 'shop.html'
@@ -30,8 +30,9 @@ export class ShopPage {
     console.log('ionViewDidLoad ShopPage');
   }
 
-  productDetails(productId): void{
+  productDetails(productId, shopId): void{
     console.log(productId);
+    this.navCtrl.push(ProductPage, {id:productId, shopId: shopId});
   }
   changeQuantity(product,change): void{
     if(!(product.quantity < 1 && change < 0))
