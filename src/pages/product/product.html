@@ -6,16 +6,16 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content class="home-ion-content">
 
   <h3 style="text-align: center"> 
     {{product.name}}
   </h3>
 
   <div *ngFor="let item of product.ingredients" style="padding: 3% 0 0 10%">
-    <ion-icon name="checkmark"></ion-icon>
+    <ion-icon  color="primary" name="checkmark"></ion-icon>
     <ion-chip>
-      <ion-label color="dark">{{item.name}}</ion-label>
+      <ion-label color="primary">{{item.name}}</ion-label>
     </ion-chip>
   </div>
 </ion-content>
